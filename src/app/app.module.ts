@@ -7,7 +7,7 @@ import { FormsModule } from '@angular/forms';
 // gallery
 import { NgxMasonryModule } from 'ngx-masonry';
 // carousel
-import { IvyCarouselModule } from 'angular-responsive-carousel';
+// import { IvyCarouselModule } from 'angular-responsive-carousel';
 // calendar
 import { FullCalendarModule } from '@fullcalendar/angular';
 //sweetalert2
@@ -54,7 +54,7 @@ import { DateAdapter, MAT_DATE_LOCALE } from '@angular/material/core';
     BrowserAnimationsModule,
     NgxMasonryModule,
     FullCalendarModule,
-    IvyCarouselModule,
+    // IvyCarouselModule,
     SweetAlert2Module.forRoot(),
     // modulos internos
     AdminModule,

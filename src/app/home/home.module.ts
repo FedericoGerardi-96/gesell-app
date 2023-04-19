@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { IvyCarouselModule } from 'angular-responsive-carousel';
+// import { IvyCarouselModule } from 'angular-responsive-carousel';
 
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { HeaderComponent } from './pages/header/header.component';
@@ -27,7 +27,7 @@ import { MapComponent } from './components/map/map.component';
     HomeRoutingModule,
     MaterialModule,
     SharedModule,
-    IvyCarouselModule,
+    // IvyCarouselModule,
   ],
 })
 export class HomeModule {}
