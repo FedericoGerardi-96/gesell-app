@@ -1,0 +1,17 @@
+.modal {
+  padding: 25px;
+  min-width: 700px;
+}
+@media (max-width: 991px) {
+  .modal {
+    min-width: 450px;
+  }
+}
+@media (max-width: 768px) {
+  .modal {
+    min-width: auto;
+  }
+  .modal {
+    padding: 10px;
+  }
+}

@@ -1,0 +1,11 @@
+.client_table_tittle {
+  margin: 30px 0;
+}
+table {
+  width: 100%;
+}
+@media (max-width: 991px) {
+  .mobile_Hide {
+    display: none !important;
+  }
+}

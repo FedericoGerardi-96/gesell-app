@@ -1,0 +1,9 @@
+.masonry_image {
+  object-fit: cover;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  padding: 20px;
+}
+.masonry_image:hover {
+  transform: scale(1.05);
+}

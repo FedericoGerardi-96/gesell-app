@@ -1,0 +1,4 @@
+mat-sidenav-content {
+  background-color: var(--primary-color) !important;
+  min-height: 100vh;
+}

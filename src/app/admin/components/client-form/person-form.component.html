@@ -1,0 +1,48 @@
+<form class="form" (ngSubmit)="insertRentDate()" #miFormulario="ngForm">
+    <h2 *ngIf="this.client != null; else edit" class="form_tittle">Editar Cliente: </h2>
+    <ng-template #edit>
+        <h2 class="form_tittle"> Nuevo Cliente: </h2>
+    </ng-template>
+    <mat-form-field class="example-full-width form__mat_form">
+        <mat-label>Nombre</mat-label>
+        <input required type="text" name="name" matInput [ngModel]="initForm.name" placeholder="Federico">
+        <mat-icon matSuffix>person</mat-icon>
+        <mat-error *ngIf="nombreValido()">
+            El nombre es <strong>requerido</strong>
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width form__mat_form">
+        <mat-label>Email</mat-label>
+        <input type="email" name="email" matInput [ngModel]="initForm.email" matInput placeholder="example@example.com">
+        <mat-icon matSuffix>email</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width form__mat_form">
+        <mat-label>Telefono</mat-label>
+        <span class="px-3" matPrefix>+54 &nbsp;</span>
+        <input type="tel" name="celphone" matInput [ngModel]="initForm.celphone" matInput placeholder="11-3865-8785">
+        <mat-icon matSuffix>phone_iphone</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width form__mat_form">
+        <mat-label>DNI</mat-label>
+        <input type="text" name="dni" matInput [ngModel]="initForm.dni" matInput placeholder="38.456.217">
+        <mat-icon matSuffix>numbers</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width form__mat_form">
+        <mat-label>Ubicacion</mat-label>
+        <input type="text" name="ubicacion" matInput [ngModel]="initForm.ubicacion" placeholder="Rosario">
+        <mat-icon matSuffix>map</mat-icon>
+    </mat-form-field>
+
+    <button *ngIf="this.client != null; else isEdit" [disabled]="miFormulario.invalid" checked="false"
+        class="mt-10 w-full" mat-raised-button color="primary">Editar</button>
+    <ng-template #isEdit>
+        <button *ngIf="!this.client != null" [disabled]="miFormulario.invalid" checked="false" class="mt-10 w-full"
+            mat-raised-button color="primary">Agregar</button>
+    </ng-template>
+
+
+</form>

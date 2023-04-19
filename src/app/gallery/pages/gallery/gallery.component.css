@@ -1,0 +1,9 @@
+.galery {
+  margin: 0 26px;
+  padding-top: 128px;
+}
+.galery__tittle {
+  color: var(--text-primary-color);
+  font-size: 36px;
+  padding: 40px 0;
+}

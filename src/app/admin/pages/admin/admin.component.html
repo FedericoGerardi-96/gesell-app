@@ -1,0 +1,20 @@
+<div class="admin">
+    <div class="admin__nav">
+        <app-navbar></app-navbar>
+    </div>
+    <div class="admin__forms container">
+        <div class="admin__forms__add_clients_button">
+            <button (click)="openDialog()" #tooltip="matTooltip" matTooltip="Agregar nuevo Cliente"
+                [matTooltipPosition]="position.value!" class="admin__forms__add_clients_button__buttonAdd"
+                color="primary" mat-fab aria-label="add client">
+                <mat-icon>add</mat-icon>
+            </button>
+        </div>
+        <app-Rent-form [esUpdate]="false"></app-Rent-form>
+        <mat-divider [inset]="true"></mat-divider>
+        <app-clients-table></app-clients-table>
+        <mat-divider [inset]="true"></mat-divider>
+        <app-rent-table></app-rent-table>
+    </div>
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,62 @@
+<form class="form" (ngSubmit)="insertRentDate()" #miFormulario="ngForm">
+    <h1 *ngIf="!esUpdate" class="form_tittle">Nuevo Alquiler: </h1>
+    <h1 *ngIf="esUpdate" class="form_tittle">Editar Alquiler: </h1>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Seleccione un Cliente</mat-label>
+        <mat-select (selectionChange)="getClientSelected()" required name="client" [ngModel]="initForm.clientSelect">
+            <mat-option *ngFor="let client of clients" [value]="client.id">
+                {{client.name}}
+            </mat-option>
+        </mat-select>
+        <mat-error *ngIf="!clientValido()">
+            Debe seleccionar un <strong>cliente</strong>
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Fecha Ingreso - Fecha Salida</mat-label>
+        <mat-date-range-input [rangePicker]="picker">
+            <input [value]="initForm.startDate" required name="startDate" [(ngModel)]="initForm.startDate" matStartDate
+                placeholder="Fecha Ingreso">
+            <input required name="endDate" [(ngModel)]="initForm.endDate" matEndDate placeholder="Fecha Salida">
+        </mat-date-range-input>
+        <mat-hint>MM/DD/YYYY - MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Total Cobrado: </mat-label>
+        <input required type="number" name="totalCobrado" matInput [ngModel]="initForm.totalCobrado" matInput
+            placeholder="250.000">
+        <mat-icon matSuffix>attach_money</mat-icon>
+        <mat-error *ngIf="!totalValido()">
+            El total es <strong>requerido</strong> y debe ser mayor a 0
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Seña: </mat-label>
+        <input required type="number" name="seña" matInput [ngModel]="initForm.senia" matInput placeholder="150.000">
+        <mat-icon matSuffix>attach_money</mat-icon>
+        <mat-error *ngIf="!totalValido()">
+            La seña es <strong>requerida</strong> y debe ser igual o mayor a 0
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Descripción</mat-label>
+        <textarea name="descripcion" [ngModel]="initForm.descripcion" matInput
+            placeholder="Ex. Jose el de palermo..."></textarea>
+    </mat-form-field>
+
+    <mat-slide-toggle name="pagoTotal" [ngModel]="initForm.pagoTotal" color="primary">Pago Total</mat-slide-toggle>
+
+
+    <button *ngIf="!esUpdate" [disabled]="miFormulario.invalid" checked="false" class="form_button mt-10 w-full"
+        mat-raised-button color="primary">Insertar</button>
+
+    <button *ngIf="esUpdate" [disabled]="miFormulario.invalid" checked="false" class="form_button mt-10 w-full"
+        mat-raised-button color="primary">Editar</button>
+</form>

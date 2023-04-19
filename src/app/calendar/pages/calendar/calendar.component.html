@@ -1,0 +1,12 @@
+<app-navbar></app-navbar>
+<div class="calendar container">
+    <div class="calendar__padding">
+        <div class="calendar__content" *ngIf="(calendarOptions | json) != ({} | json); else loadingCalendar">
+            <full-calendar [options]=" calendarOptions"></full-calendar>
+        </div>
+    </div>
+    <ng-template #loadingCalendar>
+        <app-loading></app-loading>
+    </ng-template>
+</div>
+<app-footer></app-footer>

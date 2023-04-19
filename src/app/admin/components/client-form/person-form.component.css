@@ -1,0 +1,23 @@
+.form_tittle {
+  font-weight: bold;
+  color: var(--text-primary-color);
+  padding: 12px;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+}
+.form__mat_form {
+  margin-top: 16px;
+}
+.form_button {
+  margin-top: 56px;
+}
+.mat-typography {
+  min-width: 500px;
+}
+@media (max-width: 768px) {
+  .mat-typography {
+    min-width: 100%;
+  }
+}

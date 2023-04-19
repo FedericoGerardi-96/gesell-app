@@ -1,0 +1,19 @@
+.admin {
+  padding-bottom: 240px;
+}
+.admin__nav {
+  box-shadow: 0px 7px 25px 1px rgba(0, 0, 0, 0.75);
+  margin-bottom: 144px;
+}
+.admin__forms {
+  display: flex;
+  flex-direction: column;
+}
+.admin__forms__add_clients_button {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.admin__forms__add_clients_button__buttonAdd {
+  margin: 20px 0;
+}

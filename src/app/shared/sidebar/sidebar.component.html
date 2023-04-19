@@ -1,0 +1,37 @@
+<mat-toolbar class="sideNav">
+    <a class="nav__logo" routerLink="">
+        <img class="nav__logo__img" draggable="false" src="../../../assets/Cabaña-Gesell.png"
+            alt="Logo Cabaña Gesell" />
+    </a>
+    <span class="spacer"></span>
+    <button mat-icon-button (click)="toggleNav()">
+        <mat-icon class="close_icon">close</mat-icon>
+    </button>
+
+</mat-toolbar>
+
+<mat-nav-list>
+    <a class="sideNav_link" routerLink="/gallery" mat-list-item (click)="toggleNav()">
+        <mat-icon mat-list-icon>label</mat-icon>
+        <span>Galeria</span>
+    </a>
+
+    <a class="sideNav_link" routerLink="./mapa" mat-list-item (click)="toggleNav()">
+        <mat-icon mat-list-icon>add</mat-icon>
+        <span>Mapa</span>
+    </a>
+
+    <a class="sideNav_link" routerLink="./calendar" mat-list-item (click)="toggleNav()">
+        <mat-icon mat-list-icon>search</mat-icon>
+        <span>Calendario</span>
+    </a>
+    <a class="sideNav_link" *ngIf="isLoged()" routerLink="./admin" mat-list-item (click)="toggleNav()">
+        <mat-icon mat-list-icon>search</mat-icon>
+        <span>Admin</span>
+    </a>
+    <button *ngIf="isLoged()" (click)="logOut()" mat-fab extended class="bg-black">
+        <mat-icon>logout</mat-icon>
+        logOut
+    </button>
+
+</mat-nav-list>

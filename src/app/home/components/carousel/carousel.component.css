@@ -1,0 +1,23 @@
+.carousel {
+  margin: 128px 0;
+  position: relative;
+  z-index: 0;
+}
+.carousel__line:before {
+  background: var(--color-secondary);
+  content: "";
+  height: 4px;
+  left: 35%;
+  position: absolute;
+  top: 0;
+  width: 33.33333%;
+}
+.carousel_element {
+  z-index: 0;
+}
+.carousel_element__cell {
+  z-index: 20;
+}
+.carousel_element__cell__img {
+  object-fit: cover !important;
+}

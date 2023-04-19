@@ -1,0 +1,29 @@
+<app-navbar></app-navbar>
+<div class="map_container container">
+    <h1 class="map_container__direction_tittle">Direccion</h1>
+    <pre class="map_container__direction">Calle 310 bis, n° 522, Villa Gesell, Buenos Aires.</pre>
+    <app-loading *ngIf="!isUserLocationReady; else mapReady"></app-loading>
+    <ng-template #mapReady>
+        <div class="map_container__manage_buttons">
+            <button (click)="goToMyCabin()" mat-raised-button color="primary">Navegar a cabañas Chimay</button>
+            <button (click)="getDirections()" mat-raised-button color="primary">Calcular Distancia y ruta</button>
+            <button (click)="goToMyUbication()" mat-raised-button color="primary">Navegar a mi Ubicacion</button>
+        </div>
+        <app-map-view>
+            <!-- <h1 class="absolute top-0 left-0">aeg</h1> -->
+        </app-map-view>
+        <div *ngIf="!infoMapReady; else notInfo">
+            <p class="map_container__map_text_info">Aga click en el boton para calcular la ruta</p>
+        </div>
+        <ng-template #notInfo>
+            <div class="map_container__map_text_info">
+                <app-card-map-info [distance]="getDistance" [duration]="getDuration">
+                </app-card-map-info>
+            </div>
+        </ng-template>
+
+
+    </ng-template>
+
+</div>
+<app-footer></app-footer>

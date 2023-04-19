@@ -1,0 +1,18 @@
+h3 {
+  margin: 0 0 10px;
+}
+
+pre {
+  background-color: #f5f5f5;
+  padding: 15px;
+}
+.calendar {
+  padding: 128px 0;
+  /* py-32  */
+}
+.calendar__padding{
+  margin-top: 32px;
+  background-color: var(--white);
+  padding: 16px;
+  border-radius: 8px;
+}

@@ -1,0 +1,13 @@
+.map_info {
+  align-items: center;
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+}
+.map_info__distance_duration {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}

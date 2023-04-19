@@ -1,0 +1,30 @@
+.map_container {
+  padding: 175px 20px 50px 20px;
+}
+.map_container__direction_tittle {
+  margin: 0;
+}
+.map_container__direction {
+  margin-bottom: 24px;
+}
+.map_container__manage_buttons {
+  margin-bottom: 24px;
+  display: flex;
+  gap: 8px;
+  flex-direction: row;
+  justify-content: between;
+  align-items: flex-start;
+}
+.map_container__map_text_info {
+  margin-top: 24px;
+}
+@media screen and (max-width: 768px) {
+  .map_container {
+    padding: 175px 60px 50px 60px;
+  }
+  .map_container__manage_buttons {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}

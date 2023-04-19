@@ -1,0 +1,71 @@
+<h1 class="client_table_tittle">Lista de clientes:</h1>
+<app-loading *ngIf="data.length === 0"></app-loading>
+<div [hidden]="data.length === 0">
+    <mat-form-field>
+        <mat-label>Filtrar</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Federico" #input>
+    </mat-form-field>
+    <table mat-table [dataSource]="dataSource!" class="mat-elevation-z8">
+
+        <!-- Nombre Column -->
+        <ng-container matColumnDef="Nombre">
+            <th mat-header-cell *matHeaderCellDef> Nombre </th>
+            <td mat-cell *matCellDef="let element"> {{element['name']}} </td>
+        </ng-container>
+
+        <!-- Telefono Column -->
+        <ng-container matColumnDef="Telefono">
+            <th mat-header-cell *matHeaderCellDef> Telefono </th>
+            <td mat-cell *matCellDef="let element"> {{element['celphone']}} </td>
+        </ng-container>
+
+        <!-- Email Column -->
+        <ng-container matColumnDef="Email">
+            <th class="mobile_Hide" mat-header-cell *matHeaderCellDef> Email </th>
+            <td class="mobile_Hide" mat-cell *matCellDef="let element"> {{element['email']}} </td>
+        </ng-container>
+
+        <!-- Dni Column -->
+        <ng-container matColumnDef="Dni">
+            <th class="mobile_Hide" mat-header-cell *matHeaderCellDef> Dni </th>
+            <td class="mobile_Hide" mat-cell *matCellDef="let element"> {{element['dni']}} </td>
+        </ng-container>
+
+        <!-- Ubicacion Column -->
+        <ng-container matColumnDef="Ubicacion">
+            <th class="mobile_Hide" mat-header-cell *matHeaderCellDef> Ubicacion </th>
+            <td class="mobile_Hide" mat-cell *matCellDef="let element"> {{element['ubicacion']}} </td>
+        </ng-container>
+
+        <!-- Eliminar Column -->
+        <ng-container matColumnDef="delete">
+            <th mat-header-cell *matHeaderCellDef> Eliminar </th>
+            <td mat-cell *matCellDef="let element">
+                <button
+                    [swal]="{ title: 'Esta seguro que desea eliminar el archivo ?...', showDenyButton: true, denyButtonText: 'No', showCancelButton: true }"
+                    (confirm)="eliminarCliente(element,true)" (deny)="eliminarCliente(element,false)" mat-icon-button
+                    color="warn" color="primary" aria-label="delete rent icon">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+
+        <!-- Edit Column -->
+        <ng-container matColumnDef="edit">
+            <th mat-header-cell *matHeaderCellDef> Edit </th>
+            <td mat-cell *matCellDef="let element">
+                <button (click)="editarCliente(element)" mat-icon-button color="warn" color="primary"
+                    aria-label="delete rent icon">
+                    <mat-icon>edit</mat-icon>
+                </button>
+            </td>
+        </ng-container>
+        <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+        </tr>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [length]="resultsLength" [pageSizeOptions]="[5, 10, 25, 100]"
+        aria-label="Select page of users"></mat-paginator>
+</div>

@@ -1,0 +1,19 @@
+.map {
+  height: 400px;
+  width: 100%;
+}
+@media (max-width: 1200px) {
+  .map {
+    height: 350px;
+  }
+}
+@media (max-width: 992px) {
+  .map {
+    height: 320px;
+  }
+}
+@media (max-width: 768px) {
+  .map {
+    height: 300px;
+  }
+}

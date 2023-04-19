@@ -1,0 +1,22 @@
+.rent_Info {
+  margin-top: 150px;
+  margin-bottom: 150px;
+}
+.rent_Info__return {
+  color: var(--black);
+  text-decoration: none;
+}
+.rent_Info__container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  flex-direction: row;
+  width: 100%;
+}
+.rent_Info__container__calendar {
+  padding: 20px;
+}
+@media (max-width: 768px) {
+  .rent_Info__container {
+    grid-template-columns: 1fr;
+  }
+}

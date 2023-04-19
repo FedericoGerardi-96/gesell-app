@@ -1,0 +1,55 @@
+<div class="admin">
+    <div class="admin__nav">
+        <app-navbar></app-navbar>
+    </div>
+    <app-loading *ngIf="rent === undefined; else infoReady"></app-loading>
+    <ng-template #infoReady>
+        <div class="rent_Info container">
+            <mat-card class="example-card">
+                <mat-card-header>
+                    <mat-card-subtitle>Alquiler</mat-card-subtitle>
+                    <mat-card-title>{{ rent!.name }}</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <mat-divider></mat-divider>
+                    <div class="rent_Info__container">
+                        <div>
+                            <div>
+                                <h4>Fecha de ingreso: </h4>
+                                <pre>{{rent!.startDate}}</pre>
+                            </div>
+                            <div>
+                                <h4>Fecha de salida: </h4>
+                                <pre>{{rent!.endDate}}</pre>
+                            </div>
+                            <div>
+                                <h4>Descripcion: </h4>
+                                <p>{{rent!.descripcion}}</p>
+                            </div>
+                            <div>
+                                <h4>Total Cobrado: </h4>
+                                <pre>{{rent!.totalCobrado | currency:'ARS':'symbol':'1.2-2'}}</pre>
+                            </div>
+                            <div>
+                                <h4>Seña: </h4>
+                                <pre>{{senia | currency:'ARS':'symbol':'1.2-2'}}</pre>
+                            </div>
+                        </div>
+                        <div class="rent_Info__container__calendar">
+                            <full-calendar [options]=" calendarOptions"></full-calendar>
+                        </div>
+                    </div>
+                </mat-card-content>
+                <mat-card-actions>
+                    <button mat-button><a class="rent_Info__return" routerLink="/admin">Volver</a></button>
+                    <button mat-button>Editar</button>
+                </mat-card-actions>
+                <mat-card-footer *ngIf="rent === undefined">
+                    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+                </mat-card-footer>
+            </mat-card>
+        </div>
+    </ng-template>
+
+</div>
+<app-footer></app-footer>
