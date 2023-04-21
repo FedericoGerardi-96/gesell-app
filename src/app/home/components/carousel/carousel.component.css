@@ -12,12 +12,14 @@
   top: 0;
   width: 33.33333%;
 }
-.carousel_element {
-  z-index: 0;
+.button__see_more__container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 32px;
 }
-.carousel_element__cell {
-  z-index: 20;
-}
-.carousel_element__cell__img {
-  object-fit: cover !important;
+.button__see_more__container button{
+  background: var(--secondary-color);
+  width: 25%;
 }

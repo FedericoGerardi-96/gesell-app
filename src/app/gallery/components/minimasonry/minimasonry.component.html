@@ -1,8 +1,9 @@
 <div class="container mx-auto">
     <ngx-masonry [options]="masonryOptions" [ordered]="true">
-        <div ngxMasonryItem [prepend]="image[0]" *ngFor="let image of masonryImages;index as idx" style="width: 30%;">
-            <img draggable="false" (click)="onSelectImage(image.id)" class="masonry_image" [src]="image.url" width="95%">
+        <div class="ngxMasonryItem" ngxMasonryItem [prepend]="image[0]"
+            *ngFor="let image of masonryImages;index as idx">
+            <img draggable="false" (click)="onSelectImage(image.id)" class="masonry_image" [src]="image.url"
+                width="95%">
         </div>
     </ngx-masonry>
 </div>
-

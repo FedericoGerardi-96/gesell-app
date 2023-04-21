@@ -1,8 +1,13 @@
+@import "node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.carousel.min.css";
+@import "node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.theme.default.min.css";
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
 :root {
   --white: #fff;
   --black: #000;
-  --primary-color: #f2d3ac;
-  --secondary-color: #bf9b7a;
+  --background: #e5e5e5;
+  --primary-color: #c9ad92;
+  --secondary-color: 
+  #4C2E2B;
   --text-primary-color: #593311;
   --text-secondary-color: #503826;
 }
@@ -10,11 +15,11 @@
 html,
 body {
   height: 100%;
-  background-color: var(--primary-color) !important;
+  background-color: var(--background) !important;
 }
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: "Roboto", sans-serif !important;
 }
 
 #modal-gallery-wrapper,
@@ -39,8 +44,11 @@ mat-nav-list {
     display: none !important;
   }
 }
-.carousel-arrow {
-  z-index: 0 !important;
+.owl-next,
+.owl-prev {
+  background: transparent !important;
+  color: var(--black) !important;
+  font-size: 20px !important;
 }
 
 .container {
@@ -51,6 +59,10 @@ mat-nav-list {
 @media (min-width: 768px) {
   .container {
     width: 750px;
+  }
+  .owl-next,
+  .owl-prev {
+    font-size: 35px !important;
   }
 }
 @media (min-width: 992px) {

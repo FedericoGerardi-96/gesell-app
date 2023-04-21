@@ -1,24 +1,25 @@
-<mat-toolbar class="nav container">
-  <a class="nav__logo" routerLink="">
-    <img class="nav__logo__img" draggable="false" src="../../../assets/Cabaña-Gesell.png" alt="Logo Cabaña Gesell" />
-  </a>
-  <div>
-    <button (click)="toggleNav()" mat-icon-button class="nav__button_responsive" aria-label="Menu Icon">
-      <mat-icon class="nav__button_responsive__icon">menu</mat-icon>
-    </button>
-  </div>
-  <mat-list class="nav__links" role="list">
-    <mat-list-item role="listitem"><a class="nav__links__link" routerLink="/gallery">Galeria</a></mat-list-item>
-    <mat-list-item role="listitem"><a class="nav__links__link" routerLink="/mapa">Mapa</a></mat-list-item>
-    <mat-list-item role="listitem"><a class="nav__links__link" routerLink="/calendar">Calendario</a></mat-list-item>
-    <mat-list-item role="listitem"><a *ngIf="isLoged()" class="nav__links__link"
-        routerLink="/admin">Admin</a></mat-list-item>
-  </mat-list>
-  <div class="nav__logInOut_section">
-    <span class="nav__logInOut_section__contact">Contacto</span>
-    <button *ngIf="isLoged()" (click)="logOut()" mat-fab extended class="bg-black">
-      <mat-icon>logout</mat-icon>
-      logOut
-    </button>
+<mat-toolbar [ngClass]=" url !== '/home' ? 'no-home': 'home' " class="nav container">
+  <div class="nav__container container">
+    <a class="nav__logo" routerLink="">
+      <img class="nav__logo__img" draggable="false" src="../../../assets/Cabaña-Gesell.png" alt="Logo Cabaña Gesell" />
+    </a>
+    <div class="nav__div_responsive">
+      <button (click)="toggleNav()" mat-icon-button class="nav__button_responsive" aria-label="Menu Icon">
+        <mat-icon class="nav__button_responsive__icon">menu</mat-icon>
+      </button>
+    </div>
+    <div class="navMenu" role="list">
+      <a class="nav__links__link" routerLink="/calendar" routerLinkActive="active">Reservaciones</a>
+      <a class="nav__links__link" routerLink="/gallery" routerLinkActive="active">Galeria</a>
+      <a class="nav__links__link" routerLink="/mapa" routerLinkActive="active">Ubicación</a>
+      <a class="nav__links__link" routerLink="/admin" *ngIf="isLoged()" routerLinkActive="active">Admin</a>
+      <div class="dot"></div>
+    </div>
+    <div *ngIf="isLoged()" class="nav__logInOut_section">
+      <button (click)="logOut()" mat-fab extended class="bg-black">
+        <mat-icon>logout</mat-icon>
+        logOut
+      </button>
+    </div>
   </div>
 </mat-toolbar>

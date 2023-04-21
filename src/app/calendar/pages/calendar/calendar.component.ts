@@ -34,7 +34,7 @@ export class CalendarComponent implements OnInit {
               title: 'Alquilado',
               start: this.dateStartFormat(rentDate.startDate!.toString()),
               end: this.dateEndFormat(rentDate.endDate!.toString()),
-              color: 'red',
+              color: '#e57676',
               initialDate: this.dateStartFormat(rentDate.startDate!.toString()),
             };
           });
@@ -47,6 +47,7 @@ export class CalendarComponent implements OnInit {
             initialView: 'dayGridMonth',
             plugins: [dayGridPlugin],
             events: this.Events,
+            locale: 'es',
           };
         });
       });

@@ -7,3 +7,21 @@
 .masonry_image:hover {
   transform: scale(1.05);
 }
+.ngxMasonryItem {
+  width: 30%;
+}
+
+@media (max-width: 768px) {
+  .masonry_image {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 440px) {
+  .masonry_image {
+    padding: 0;
+  }
+  .ngxMasonryItem {
+    width: 20%;
+  }
+}

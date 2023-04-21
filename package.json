@@ -31,6 +31,7 @@
     "mapbox-gl": "^2.13.0",
     "moment": "^2.29.4",
     "ngx-masonry": "^14.0.1",
+    "ngx-owl-carousel-o": "^15.0.0",
     "rxjs": "~7.8.0",
     "sweetalert2": "^11.7.3",
     "tslib": "^2.3.0",

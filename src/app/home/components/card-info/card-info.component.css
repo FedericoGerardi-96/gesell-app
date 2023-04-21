@@ -1,0 +1,44 @@
+.card {
+  display: grid;
+  grid-template-columns: 1fr minmax(250px, 1fr);
+  padding: 0 !important;
+  height: 220px;
+  background: var(--primary-color);
+  border: 1px solid #472302;
+}
+.card_container__2__image {
+  background-image: url("../../../../assets/Villa Gesell/IMG_6536.JPEG");
+  height: 100%;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.card_container__2__text {
+  color: var(--black);
+  text-align: center;
+  padding: 25px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid #472302;
+  font-size: 18px;
+}
+@media (max-width: 991px){
+  .card_container__2__text {
+    font-size: 16px;
+  }
+}
+@media (max-width: 768px) {
+  .card {
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+  }
+  .card_container__2__text {
+    border-right: none;
+    padding: 20px;
+    border-bottom: 1px solid #472302;
+  }
+}

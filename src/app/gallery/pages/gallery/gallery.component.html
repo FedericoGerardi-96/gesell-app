@@ -1,5 +1,8 @@
 <app-navbar></app-navbar>
 <div class="galery">
-    <h1 class="galery__tittle">Galeria de fotos</h1>
+    <div class="galery__container container">
+        <h1 class="galery__tittle">Galeria de fotos</h1>
+    </div>
     <app-minimasonry (onImageSelected)="onImageSelected($event)"></app-minimasonry>
 </div>
+<app-footer></app-footer>

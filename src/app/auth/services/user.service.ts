@@ -33,7 +33,6 @@ export class UserService {
         email,
         password
       );
-      console.log(resp.user);
       return { message: 'Logeado correctamente', status: true };
     } catch (error: any) {
       console.log(error);

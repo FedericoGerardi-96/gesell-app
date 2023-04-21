@@ -1,9 +1,15 @@
 .galery {
-  margin: 0 26px;
+  margin: 0 15px;
   padding-top: 128px;
 }
 .galery__tittle {
-  color: var(--text-primary-color);
+  color: var(--black);
   font-size: 36px;
   padding: 40px 0;
+}
+@media screen and (max-width: 767px) {
+  .galery {
+    margin: 0 5px;
+  }
+
 }

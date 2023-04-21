@@ -1,18 +1,15 @@
 <div class="carousel">
   <div class="carousel__line"></div>
-  <!-- <carousel class="carousel_element" [autoplay]="true" [cellWidth]="550" [margin]="45" [loop]="true" class="carousel"
-    [height]="350">
-    <div class="carousel-cell carousel_element__cell">
-      <img class="carousel_element__cell__img object-cover" draggable="false"
-        src="../../../../assets/Villa Gesell/IMG_6667.JPEG" />
-    </div>
-    <div class="carousel-cell carousel_element__cell">
-      <img class=" carousel_element__cell__img object-cover" draggable="false"
-        src="../../../../assets/Villa Gesell/IMG_6653.JPEG" />
-    </div>
-    <div class="carousel-cell carousel_element__cell">
-      <img class=" carousel_element__cell__img object-cover" draggable="false"
-        src="../../../../assets/Villa Gesell/IMG_6756.JPEG" />
-    </div>
-  </carousel> -->
+  <owl-carousel-o [options]="customOptions">
+    <ng-container *ngFor="let slide of images">
+      <ng-template carouselSlide [id]="slide.id">
+        <img draggable="false" [src]="slide.url" [alt]="slide.alt" [title]="slide.title">
+      </ng-template>
+    </ng-container>
+  </owl-carousel-o>
+  <div class="button__see_more__container">
+    <button routerLink="/gallery" mat-fab extended class="bg-black">
+      Ver Más
+    </button>
+  </div>
 </div>
