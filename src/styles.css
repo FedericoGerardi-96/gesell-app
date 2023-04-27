@@ -39,6 +39,12 @@ mat-nav-list {
   align-items: center !important;
   margin: 25px 0 !important;
 }
+.map-image {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+}
+
 @media screen and (max-width: 560px) {
   .dots-container {
     display: none !important;

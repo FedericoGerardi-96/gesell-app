@@ -1,0 +1,44 @@
+.modal {
+  padding: 25px;
+  min-width: 700px;
+}
+.contact__icons {
+  color: var(--white);
+  font-size: 35px;
+  height: auto;
+  display: flex;
+  justify-content: space-around;
+}
+.contact__icons_icons__a {
+  height: 55px;
+  width: 55px;
+  margin-right: 15px;
+  padding: 0 !important;
+}
+.contact__icons_icons__a:hover {
+  transition: all 0.3s ease-in-out;
+  transform: scale(1.2);
+}
+.logo-whatsapp {
+  height: 55px;
+  width: 55px;
+  object-fit: contain;
+}
+@media (max-width: 991px) {
+  .modal {
+    min-width: 450px;
+  }
+}
+@media (max-width: 768px) {
+  .modal {
+    min-width: auto;
+  }
+  .modal {
+    padding: 10px;
+  }
+  .contact__icons{
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+}

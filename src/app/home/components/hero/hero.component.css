@@ -18,31 +18,39 @@
   color: var(--white);
   font-size: 7rem;
   line-height: 1.2;
-  margin-bottom: 2rem;
+  margin-bottom: 24px;
 }
 .hero__content__tittle__span {
   font-family: "Arizonia", cursive;
 }
 .hero__content__subtittle {
   color: var(--white);
-  font-size: 5.5rem;
+  font-size: 34px;
   line-height: 1;
   margin-bottom: 2rem;
+  text-align: initial;
   font-weight: 300;
+  width: 55%;
+  border-left: 2px solid rgba(0, 0, 0, 0.6);
+  padding-left: 24px;
 }
 .hero__content__button_link {
   width: 75%;
   height: 56px;
-  background: rgba(0, 0, 0, 0.60);
+  background: rgba(0, 0, 0, 0.6);
   font-size: 16px;
   font-weight: 100;
+}
+.hero__content__buttons {
+  display: flex;
+  gap: 16px;
 }
 @media screen and (max-width: 992px) {
   .hero__content__tittle {
     font-size: 5rem;
   }
   .hero__content__subtittle {
-    font-size: 4rem;
+    font-size: 30px;
   }
 }
 @media screen and (max-width: 768px) {
@@ -58,11 +66,19 @@
     font-size: 4rem;
   }
   .hero__content__subtittle {
-    font-size: 3.5rem;
+    font-size: 26px;
+    width: 75%;
   }
   .hero__content__button_link {
     width: 100%;
     font-size: 14px;
+  }
+  .hero__content__buttons {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 0 50px;
   }
 }
 @media screen and (max-width: 576px) {
@@ -70,10 +86,13 @@
     font-size: 3.2rem;
   }
   .hero__content__subtittle {
-    font-size: 2.2rem;
+    padding-left: 5px;
+    text-align: center;
+    width: 100%;
+    font-size: 24px;
   }
   .hero__content__button_link {
-    width: 75%;
+    width: 100%;
     font-size: 12px;
   }
 }
@@ -82,6 +101,6 @@
     font-size: 2.2rem;
   }
   .hero__content__subtittle {
-    font-size: 1.5rem;
+    font-size: 20px;
   }
 }

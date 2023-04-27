@@ -10,7 +10,7 @@ import { PlacesService } from 'src/app/mapa/services/places.service';
 export class HomeComponent implements OnInit {
   constructor(
     private placesService: PlacesService,
-    private userSerevices: UserService
+    private userSerevices: UserService,
   ) {}
 
   ngOnInit(): void {

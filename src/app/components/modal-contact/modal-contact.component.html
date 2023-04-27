@@ -1,0 +1,23 @@
+<div class="modal">
+    <h2 class="form_tittle">Contactanos mediante estos medios</h2>
+    <mat-dialog-content class="mat-typography">
+        <div class="contact__icons">
+            <a #tooltip="matTooltip" matTooltip="Contactar por facebook" [matTooltipPosition]="position.value!"
+                target="_blank" class="contact__icons_icons__a" href="https://msng.link/o/?marcela.blanchi=fm">
+                <img class="logo-whatsapp" src="../../../assets/facebook-logo.svg" alt="logo facebook">
+            </a>
+            <a #tooltip="matTooltip" matTooltip="Contactar por Whatsapp" [matTooltipPosition]="position.value!"
+                target="_blank" class="contact__icons_icons__a"
+                href="https://api.whatsapp.com/send?phone=+541164660222&text=¡Buen día! Estoy interesado en comunicarme con usted">
+                <img class="logo-whatsapp" src="../../../assets/whatsapp-icon.svg" alt="logo whatsapp">
+            </a>
+            <a #tooltip="matTooltip" matTooltip="Contactar por E-Mail" [matTooltipPosition]="position.value!"
+                target="_blank" class="contact__icons_icons__a" href="mailto:marcelablanchi@hotmail.com">
+                <img class="logo-whatsapp" src="../../../assets/mail-icon.svg" alt="logo email">
+            </a>
+        </div>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button color="warn" mat-raised-button mat-dialog-close>Cerrar</button>
+    </mat-dialog-actions>
+</div>

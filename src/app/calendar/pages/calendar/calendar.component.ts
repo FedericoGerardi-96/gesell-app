@@ -1,11 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { map } from 'rxjs';
+
+import { FullCalendarComponent } from '@fullcalendar/angular';
 import { CalendarOptions } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
+
 import moment from 'moment';
-import { map } from 'rxjs';
+import Swal from 'sweetalert2';
 
 import { RentFirebaseService } from 'src/app/admin/services/rent-firebase.service';
 import { rentDates } from 'src/app/interfaces/rentDates';
+import {
+  dateStartFormat,
+  dateEndFormat,
+  isDateRangeOccupied,
+  convertStringToDate,
+} from 'src/app/calendar/utils/date';
 
 interface calendar {
   title?: string;
@@ -20,22 +31,29 @@ interface calendar {
   styleUrls: ['./calendar.component.css'],
 })
 export class CalendarComponent implements OnInit {
-  constructor(private _rentFirebaseService: RentFirebaseService) {}
-  calendarOptions: CalendarOptions = {};
-  Events: any = [];
+  @ViewChild('calendar') calendarComponent?: FullCalendarComponent;
+  @ViewChild('miFormulario') miFormulario!: NgForm;
 
-  ngOnInit() {
+  calendarOptions: CalendarOptions = {};
+  Events: calendar[] = [];
+  ocupiedDays: Object[] = [];
+
+  constructor(private _rentFirebaseService: RentFirebaseService) {
     this._rentFirebaseService
       .getAlquileres()
       .pipe(
         map((rent) => {
           return rent.map((rentDate: rentDates) => {
+            this.ocupiedDays.push({
+              startDate: dateStartFormat(rentDate.startDate!.toString()),
+              endDate: dateStartFormat(rentDate.endDate!.toString()),
+            });
             return {
               title: 'Alquilado',
-              start: this.dateStartFormat(rentDate.startDate!.toString()),
-              end: this.dateEndFormat(rentDate.endDate!.toString()),
+              start: dateStartFormat(rentDate.startDate!.toString()),
+              end: dateEndFormat(rentDate.endDate!.toString()),
               color: '#e57676',
-              initialDate: this.dateStartFormat(rentDate.startDate!.toString()),
+              initialDate: dateStartFormat(rentDate.startDate!.toString()),
             };
           });
         })
@@ -53,16 +71,53 @@ export class CalendarComponent implements OnInit {
       });
   }
 
-  dateStartFormat(date: string): string {
-    let fechaMoment = moment(date, 'DD/MM/YYYY');
-    let fechaFormateada = fechaMoment.format('YYYY-MM-DD');
-    return fechaFormateada;
-  }
-  dateEndFormat(date: string): string {
-    let fechaMoment = moment(date, 'DD/MM/YYYY');
-    let fechaSumada = fechaMoment.add(1, 'days').format('YYYY-MM-DD');
-    let fechaSumadaMoment = moment(fechaSumada, 'YYYY-MM-DD');
-    let fechaFormateada = fechaSumadaMoment.format('YYYY-MM-DD');
-    return fechaFormateada;
+  initForm = {
+    startDate: moment().toDate(),
+    endDate: moment().toDate(),
+  };
+
+  ngOnInit() {}
+
+  searchDate() {
+    let { startDate, endDate } = this.miFormulario.control.value!;
+    if (this.calendarComponent?.getApi().getEventById('eventoSeleccionado')) {
+      this.calendarComponent
+        ?.getApi()
+        .getEventById('eventoSeleccionado')!
+        .remove();
+    }
+    const isOccupied = isDateRangeOccupied(
+      moment(startDate).format('YYYY-MM-DD'),
+      moment(endDate).format('YYYY-MM-DD'),
+      this.ocupiedDays
+    );
+
+    if (isOccupied) {
+      Swal.fire(
+        'No Disponible',
+        'La fecha seleccionada esta ocupada',
+        'warning'
+      );
+      return;
+    } else {
+      Swal.fire(
+        'Disponible',
+        'La fecha seleccionada esta disponible',
+        'success'
+      );
+
+      const objEvent = {
+        id: 'eventoSeleccionado',
+        title: 'Seleccionado',
+        start: moment(startDate).format('YYYY-MM-DD'),
+        end: dateEndFormat(moment(endDate).format('DD/MM/YYYY')),
+        color: '#3f51b5',
+      };
+      this.calendarComponent?.getApi().addEvent(objEvent);
+    }
+    startDate = moment(this.miFormulario.control.value?.startDate).format(
+      'DD/MM/YYYY'
+    );
+    this.calendarComponent?.getApi().gotoDate(convertStringToDate(startDate));
   }
 }

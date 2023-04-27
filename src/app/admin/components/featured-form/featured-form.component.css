@@ -1,0 +1,35 @@
+.form_tittle {
+  font-weight: bold;
+  color: var(--text-primary-color);
+  padding: 12px;
+  margin: 40px 0;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+}
+.form__mat_form {
+  margin-top: 16px;
+}
+.form_button {
+  margin-top: 56px;
+}
+.mat-typography {
+  min-width: 500px;
+}
+.lat-long mat-form-field {
+  width: 100%;
+}
+.lat-long {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+@media (max-width: 768px) {
+  .mat-typography {
+    min-width: 100%;
+  }
+  .lat-long {
+    flex-direction: column;
+  }
+}

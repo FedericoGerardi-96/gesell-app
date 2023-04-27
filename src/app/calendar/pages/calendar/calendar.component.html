@@ -1,8 +1,27 @@
 <app-navbar></app-navbar>
 <div class="calendar container">
-    <div class="calendar__padding">
-        <div class="calendar__content" *ngIf="(calendarOptions | json) != ({} | json); else loadingCalendar">
-            <full-calendar [options]=" calendarOptions"></full-calendar>
+    <div *ngIf="(calendarOptions | json) != ({} | json); else loadingCalendar" class="calendar__padding">
+        <form (ngSubmit)="searchDate()" #miFormulario="ngForm">
+            <h1>Seleccione la fecha que desea consultar disponibilidad: </h1>
+            <mat-divider></mat-divider>
+            <div class="form-div">
+                <mat-form-field class="mat-date-range" appearance="fill">
+                    <mat-label>Fecha Ingreso - Fecha Salida</mat-label>
+                    <mat-date-range-input [rangePicker]="picker">
+                        <input [value]="initForm.startDate" required name="startDate" [(ngModel)]="initForm.startDate"
+                            matStartDate placeholder="Fecha Ingreso">
+                        <input required name="endDate" [(ngModel)]="initForm.endDate" matEndDate
+                            placeholder="Fecha Salida">
+                    </mat-date-range-input>
+                    <mat-hint>MM/DD/YYYY - MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-date-range-picker #picker></mat-date-range-picker>
+                </mat-form-field>
+                <button type="submit" mat-raised-button color="primary">Verificar disponibilidad</button>
+            </div>
+        </form>
+        <div class="calendar__content">
+            <full-calendar #calendar [options]=" calendarOptions"></full-calendar>
         </div>
     </div>
     <ng-template #loadingCalendar>

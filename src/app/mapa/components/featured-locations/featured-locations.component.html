@@ -1,0 +1,20 @@
+<div>
+    <app-loading *ngIf="features.length === 0; else mapReady"></app-loading>
+    <ng-template #mapReady>
+        <h1>Lugares recomendados para visitar: </h1>
+        <mat-accordion *ngFor="let feature of features" class="example-headers-align" multi>
+            <mat-expansion-panel hideToggle>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        {{ feature.name }}
+                    </mat-panel-title>
+                    <mat-panel-description class="feature-description">
+                        {{ feature.location }}
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <p>{{ feature.description }}</p>
+                <button mat-raised-button color="primary" (click)="goToUbication(feature)">Navegar a ubicacion</button>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </ng-template>
+</div>

@@ -4,12 +4,17 @@
             Cabañas
             <span class="hero__content__tittle__span">Chimay</span>
         </h1>
-        <h2 class="hero__content__subtittle">
-            Alquiler
-        </h2>
-        <a routerLink="/calendar" class="hero__content__button_link" mat-fab extended>
-            Consultar Disponibilidad
-        </a>
+        <p class="hero__content__subtittle">
+            "Disfruta de la tranquilidad de la naturaleza en nuestras acogedoras cabañas en Villa Gesell".
+        </p>
+        <div class="hero__content__buttons">
+            <a routerLink="/calendar" class="hero__content__button_link" mat-fab extended>
+                Consultar Disponibilidad
+            </a>
+            <a (click)="openContactDialog()" class="hero__content__button_link" mat-fab extended>
+                Contacto
+            </a>
+        </div>
     </div>
 
 </div>

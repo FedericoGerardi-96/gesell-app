@@ -35,6 +35,15 @@ export class MapService {
     this.map = map;
   }
 
+  flyToFeatured(coords: LngLatLike) {
+    if (!this.isMapReady) throw Error('El mapa no esta inicializado');
+
+    this.map?.flyTo({
+      zoom: 18,
+      center: coords,
+    });
+  }
+
   flyTo(coords: LngLatLike) {
     if (!this.isMapReady) throw Error('El mapa no esta inicializado');
 

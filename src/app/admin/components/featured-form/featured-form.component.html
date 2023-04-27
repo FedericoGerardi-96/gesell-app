@@ -1,0 +1,55 @@
+<form class="form" (ngSubmit)="insertRentDate()" #miFormulario="ngForm">
+    <h2 *ngIf="this.esUpdate; else edit" class="form_tittle">Editar ubicacion para recomendar:: </h2>
+    <ng-template #edit>
+        <h2 class="form_tittle"> Nueva ubicacion para recomendar: </h2>
+    </ng-template>
+    <mat-form-field class="example-full-width form__mat_form">
+        <mat-label>Nombre</mat-label>
+        <input required type="text" name="name" matInput [ngModel]="initForm.name" placeholder="La Delfina...">
+        <mat-icon matSuffix>person</mat-icon>
+        <mat-error *ngIf="nombreValido()">
+            El nombre es <strong>requerido</strong>
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width form__mat_form">
+        <mat-label>Localizacion</mat-label>
+        <input type="text" name="location" matInput [ngModel]="initForm.location" matInput
+            placeholder="example@example.com">
+        <mat-icon matSuffix>map</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Descripción</mat-label>
+        <textarea name="description" [ngModel]="initForm.description" matInput
+            placeholder="Ex. Panaderia en..."></textarea>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width form__mat_form">
+        <mat-label>Link</mat-label>
+        <input type="text" name="link" matInput [ngModel]="initForm.link" matInput placeholder="http://algo.com.ar">
+        <mat-icon matSuffix>numbers</mat-icon>
+    </mat-form-field>
+
+    <div class="lat-long">
+        <mat-form-field class="example-full-width form__mat_form">
+            <mat-label>Latitud</mat-label>
+            <input type="number" name="lat" matInput [ngModel]="initForm.lat" placeholder="135">
+            <mat-icon matSuffix>map</mat-icon>
+        </mat-form-field>
+        <mat-form-field class="example-full-width form__mat_form">
+            <mat-label>Longitud</mat-label>
+            <input type="number" name="long" matInput [ngModel]="initForm.long" placeholder="-135">
+            <mat-icon matSuffix>map</mat-icon>
+        </mat-form-field>
+    </div>
+
+    <button *ngIf="this.esUpdate ; else isEdit" [disabled]="miFormulario.invalid" checked="false" class="mt-10 w-full"
+        mat-raised-button color="primary">Editar</button>
+    <ng-template #isEdit>
+        <button [disabled]="miFormulario.invalid" checked="false" class="mt-10 w-full" mat-raised-button
+            color="primary">Agregar</button>
+    </ng-template>
+
+
+</form>

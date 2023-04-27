@@ -14,9 +14,62 @@
 }
 .close_icon {
   font-size: 30px !important;
-  color: var(--white);
+  color: var(--black);
 }
 .sideNav_link span {
   font-size: 20px;
   margin-left: 10px;
+}
+.navMenu {
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+  flex-direction: column;
+  margin-left: 40px;
+  width: 100%;
+  gap: 20px;
+}
+.navMenu a {
+  background-image: linear-gradient(
+    to right,
+    var(--black),
+    var(--black) 50%,
+    var(--black) 50%
+  );
+  background-size: 200% 100%;
+  background-position: -100%;
+  display: flex;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.3s ease-in-out;
+  color: var(--black);
+  font-weight: 300;
+  font-size: 22px;
+}
+.navMenu a.active span {
+  background-position: 0;
+}
+.navMenu a.active span::before {
+  width: 100%;
+}
+.navMenu a span:before {
+  content: "";
+  background: var(--black);
+  display: block;
+  position: absolute;
+  bottom: -32px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+.navMenu a:hover span {
+  background-position: 0;
+}
+.navMenu a:hover span::before {
+  width: 100%;
+}
+.navMenu a span {
+  padding-left: 10px;
 }

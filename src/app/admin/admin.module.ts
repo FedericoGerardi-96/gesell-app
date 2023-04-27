@@ -16,6 +16,9 @@ import { RentTableComponent } from './components/rent-table/rent-table.component
 import { RentInfoComponent } from './pages/rent-info/rent-info.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { ModalRentFormComponent } from './components/modal-rent-form/modal-rent-form.component';
+import { FeaturedFormComponent } from './components/featured-form/featured-form.component';
+import { FeaturedTableComponent } from './components/featured-table/featured-table.component';
+import { ModalFeaturedFormComponent } from './components/modal-featured-form/modal-featured-form.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +30,9 @@ import { ModalRentFormComponent } from './components/modal-rent-form/modal-rent-
     RentTableComponent,
     RentInfoComponent,
     ModalRentFormComponent,
+    FeaturedFormComponent,
+    FeaturedTableComponent,
+    ModalFeaturedFormComponent,
   ],
   imports: [
     CommonModule,

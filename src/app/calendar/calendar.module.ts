@@ -6,6 +6,7 @@ import { CalendarComponent } from './pages/calendar/calendar.component';
 import { CalendarRoutingModule } from './calendar-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { FullCalendarModule } from '@fullcalendar/angular';
+import { MaterialModule } from '../material/material.module';
 
 @NgModule({
   declarations: [CalendarComponent],
@@ -14,8 +15,9 @@ import { FullCalendarModule } from '@fullcalendar/angular';
     CalendarRoutingModule,
     FormsModule,
     SharedModule,
+    MaterialModule,
     // external modules
-    FullCalendarModule 
+    FullCalendarModule,
   ],
 })
 export class CalendaryModule {}

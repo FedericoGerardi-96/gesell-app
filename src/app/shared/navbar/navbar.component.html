@@ -9,7 +9,10 @@
       </button>
     </div>
     <div class="navMenu" role="list">
-      <a class="nav__links__link" routerLink="/calendar" routerLinkActive="active">Reservaciones</a>
+      <a class="nav__links__link disponibilidad" routerLink="/calendar" routerLinkActive="active"> 
+        <span>Consultar </span>
+        <span>Disponibilidad</span>
+      </a>
       <a class="nav__links__link" routerLink="/gallery" routerLinkActive="active">Galeria</a>
       <a class="nav__links__link" routerLink="/mapa" routerLinkActive="active">Ubicación</a>
       <a class="nav__links__link" routerLink="/admin" *ngIf="isLoged()" routerLinkActive="active">Admin</a>

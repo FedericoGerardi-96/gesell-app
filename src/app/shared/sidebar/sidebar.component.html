@@ -11,24 +11,27 @@
 </mat-toolbar>
 
 <mat-nav-list>
-    <a class="sideNav_link" routerLink="/gallery" mat-list-item (click)="toggleNav()">
-        <mat-icon mat-list-icon>label</mat-icon>
-        <span>Galeria</span>
-    </a>
+    <div class="navMenu" role="list">
+        <a (click)="toggleNav()" class="nav__links__link" routerLink="/calendar" routerLinkActive="active">
+            <mat-icon mat-list-icon>image</mat-icon>
+            <span>Consultar Disponibilidad </span>
+        </a>
+        <a (click)="toggleNav()" class="nav__links__link" routerLink="/gallery" routerLinkActive="active">
+            <mat-icon mat-list-icon>image</mat-icon>
+            <span>Galeria</span>
+        </a>
+        <a (click)="toggleNav()" class="nav__links__link" routerLink="/mapa" routerLinkActive="active">
+            <mat-icon mat-list-icon>map</mat-icon>
+            <span>Ubicacion</span>
+        </a>
+        <a (click)="toggleNav()" class="nav__links__link" routerLink="/admin" *ngIf="isLoged()"
+            routerLinkActive="active">
+            <mat-icon mat-list-icon>admin_panel_settings</mat-icon>
+            <span>Admin</span>
+        </a>
+        <div class="dot"></div>
+    </div>
 
-    <a class="sideNav_link" routerLink="./mapa" mat-list-item (click)="toggleNav()">
-        <mat-icon mat-list-icon>add</mat-icon>
-        <span>Mapa</span>
-    </a>
-
-    <a class="sideNav_link" routerLink="./calendar" mat-list-item (click)="toggleNav()">
-        <mat-icon mat-list-icon>search</mat-icon>
-        <span>Calendario</span>
-    </a>
-    <a class="sideNav_link" *ngIf="isLoged()" routerLink="./admin" mat-list-item (click)="toggleNav()">
-        <mat-icon mat-list-icon>search</mat-icon>
-        <span>Admin</span>
-    </a>
     <button *ngIf="isLoged()" (click)="logOut()" mat-fab extended class="bg-black">
         <mat-icon>logout</mat-icon>
         logOut

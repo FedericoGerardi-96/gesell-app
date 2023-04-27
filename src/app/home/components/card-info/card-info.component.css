@@ -6,6 +6,9 @@
   background: var(--primary-color);
   border: 1px solid #472302;
 }
+.card_container{
+  margin-top: 120px;
+}
 .card_container__2__image {
   background-image: url("../../../../assets/Villa Gesell/IMG_6536.JPEG");
   height: 100%;

@@ -13,6 +13,7 @@ import { HeroComponent } from './components/hero/hero.component';
 import { CardDescripcionComponent } from './components/card-descripcion/card-descripcion.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { CardInfoComponent } from './components/card-info/card-info.component';
+import { ContactBannerComponent } from './components/contact-banner/contact-banner.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { CardInfoComponent } from './components/card-info/card-info.component';
     HeroComponent,
     CardDescripcionComponent,
     CardInfoComponent,
+    ContactBannerComponent,
   ],
   imports: [
     CommonModule,

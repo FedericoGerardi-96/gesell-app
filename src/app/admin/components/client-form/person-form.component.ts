@@ -62,7 +62,8 @@ export class PersonFormComponent implements OnInit {
         ubicacion,
         id,
       });
-      Swal.fire('Correecto', 'Editado correctamente', 'success');
+      this.miFormulario.resetForm();
+      Swal.fire('Correcto', 'Editado correctamente', 'success');
     } else {
       await this._clientSerevice.insertarCliente({
         name,
@@ -71,7 +72,8 @@ export class PersonFormComponent implements OnInit {
         email,
         ubicacion,
       });
-      Swal.fire('Correecto', 'Insertado correctamente', 'success');
+      this.miFormulario.resetForm();
+      Swal.fire('Correcto', 'Insertado correctamente', 'success');
     }
 
     this.dialogRef.close();

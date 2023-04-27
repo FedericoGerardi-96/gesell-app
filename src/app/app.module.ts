@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 
+import { MAT_DATE_LOCALE } from '@angular/material/core';
 // gallery
 import { NgxMasonryModule } from 'ngx-masonry';
 // carousel
@@ -36,10 +37,10 @@ import { AppComponent } from './app.component';
 
 import { environment } from 'src/environments/environment';
 import { MaterialModule } from './material/material.module';
-import { DateAdapter, MAT_DATE_LOCALE } from '@angular/material/core';
+import { ModalContactComponent } from './components/modal-contact/modal-contact.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, ModalContactComponent, ModalContactComponent],
   imports: [
     // angular modules
     BrowserModule,
