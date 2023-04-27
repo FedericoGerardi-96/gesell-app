@@ -21,5 +21,5 @@ export class AppComponent implements OnInit {
   get isOpen(): boolean {
     return this._sidebarServiceService.isOpen;
   }
-  title = 'gesell-app';
+  title = 'Cabaña Chimay';
 }

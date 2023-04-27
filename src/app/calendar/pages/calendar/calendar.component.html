@@ -8,9 +8,9 @@
                 <mat-form-field class="mat-date-range" appearance="fill">
                     <mat-label>Fecha Ingreso - Fecha Salida</mat-label>
                     <mat-date-range-input [rangePicker]="picker">
-                        <input [value]="initForm.startDate" required name="startDate" [(ngModel)]="initForm.startDate"
-                            matStartDate placeholder="Fecha Ingreso">
-                        <input required name="endDate" [(ngModel)]="initForm.endDate" matEndDate
+                        <input readonly [value]="initForm.startDate" required name="startDate"
+                            [(ngModel)]="initForm.startDate" matStartDate placeholder="Fecha Ingreso">
+                        <input readonly required name="endDate" [(ngModel)]="initForm.endDate" matEndDate
                             placeholder="Fecha Salida">
                     </mat-date-range-input>
                     <mat-hint>MM/DD/YYYY - MM/DD/YYYY</mat-hint>
